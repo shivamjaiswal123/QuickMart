@@ -1,0 +1,6 @@
+
+Explore page (feautured product)
+    https://dummyjson.com/products
+
+Product by id
+    https://dummyjson.com/products/1
