@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
-import AuthContext from "../context/AuthContext";
+import { CartState } from "../context/CartContext";
 
 function Navigation() {
-  const { bagSize } = useContext(AuthContext)
+  const { cart } = CartState()
   return (
     <>
       <nav>
-        <div class="bg-white p-6 mr-16">
-          <ul class="flex gap-14 justify-end font-medium">
+        <div className="bg-white p-6 mr-16">
+          <ul className="flex gap-14 justify-end font-medium">
             <li>
               <Link to="/">Explore</Link>
             </li>
@@ -18,7 +18,7 @@ function Navigation() {
             </li>
         
             <li>
-              <Link> {bagSize ? <Badge count={bagSize}/> : null} <FiShoppingBag size={20}/>  </Link>
+              <Link to="/cart"> { cart.length ? <Badge count= {cart.length}/>: null } <FiShoppingBag size={20}/>  </Link>
             </li>
           </ul>
         </div>

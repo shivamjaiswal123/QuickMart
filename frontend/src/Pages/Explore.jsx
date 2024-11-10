@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FeaturedProducts from "../component/FeaturedProducts";
+import Footer from "../component/Footer";
 
 function Explore() {
   const [data, setData] = useState([]);
@@ -24,6 +25,7 @@ function Explore() {
       {data.products.map(product => (
         <FeaturedProducts key={product.id} product={product} />
       ))}
+      <Footer/>
     </div>
   );
 }

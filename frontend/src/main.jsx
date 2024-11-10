@@ -11,7 +11,8 @@ import Signup from "./Pages/Signup.jsx";
 import Explore from "./Pages/Explore.jsx";
 import RootLayout from "./Pages/RootLayout.jsx";
 import Product from "./Pages/Product.jsx";
-import AuthProvider from "./context/AuthProvider.jsx";
+import CartContext from "./context/CartContext";
+import Cart from "./Pages/Cart";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
           <Route path="signin" element={ <Signin /> }/>
           <Route path="signup" element={ <Signup /> }/>
           <Route path="product/:id" element={ <Product />  }/>
+          <Route path="cart" element={ <Cart />  }/>
         </Route>
         
     </Route>
@@ -28,8 +30,8 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")).render(
   // <StrictMode>
-    <AuthProvider>
+    <CartContext>
       <RouterProvider router={router} />
-    </AuthProvider>
+    </CartContext>
   // </StrictMode>
 );
