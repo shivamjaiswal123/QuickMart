@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import Sliderr from "../component/Slider";
+import Sliderr from "../component/Sliderr";
 import { CartState } from "../context/CartContext";
 
 function Product() {

@@ -7,29 +7,31 @@ function Navigation() {
   const { cart } = CartState()
   return (
     <>
-      <nav>
-        <div className="bg-white p-6 mr-16">
-          <ul className="flex gap-14 justify-end font-medium">
-            <li>
-              <Link to="/">Explore</Link>
-            </li>
-            <li>
-              <Link to="/signin">Login</Link>
-            </li>
-        
-            <li>
-              <Link to="/cart"> { cart.length ? <Badge count= {cart.length}/>: null } <FiShoppingBag size={20}/>  </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+    <div className="bg-black p-1 text-center px-8 font-nav">
+      <span className="text-white font-semibold">We Offer free shipping</span>
+    </div>
+    <div className="bg-white shadow-lg p-6 flex items-center gap-6 justify-around shadow-md mb-1">
+
+  <nav>
+    <ul className="flex font-semibold gap-12">
+      <li>MENS</li>
+      <li>WOMENS</li>
+      <li>KIDS</li>
+      <li>BEAUTY</li>
+    </ul>
+  </nav>
+
+  <input type="text" placeholder="SEARCH..." className="border p-2 w-1/4 border-none bg-gray-100 rounded-md pl-8"/>
+
+  <Link to="/cart"> { cart.length ? <Badge count= {cart.length}/>: null } <FiShoppingBag size={20}/>  </Link>
+</div>
+</>
   );
 }
 
 
 const Badge = ({count})=>(
-  <div className="text-sm w-6 h-6 absolute top-3 ml-3 rounded-xl text-center text-white bg-red-700">
+  <div className="w-6 h-6 absolute top-12 ml-2.5 rounded-xl text-center text-white bg-red-700">
     <p>{count}</p>
   </div>
 );

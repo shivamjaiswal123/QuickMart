@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div>
+    <div className="mt-16">
       <div className="bg-gray-200 flex justify-around p-8 font-semibold">
         <div>EASY EXCHANGE</div>
         <div>100% HANDPICKED</div>
