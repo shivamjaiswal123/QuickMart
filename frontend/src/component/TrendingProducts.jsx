@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { CartState } from "../context/CartContext";
 
 function TrendingProducts() {
   const [trendingProducts, setTrendingProducts] = useState([]);
+  const { cart, setCart } = CartState()
 
   const fetchTrendingProducts = async () => {
     const res = await fetch("https://dummyjson.com/products?limit=4&skip=66");
@@ -12,6 +14,11 @@ function TrendingProducts() {
   useEffect(() => {
     fetchTrendingProducts();
   }, []);
+
+  const addToBag = (prod) => {
+    prod.qty = 1
+    setCart([...cart, prod])
+  }
 
   return (
     <div className="flex gap-6 flex-wrap">
@@ -48,7 +55,7 @@ function TrendingProducts() {
                     </span>
                 ))}
             </div>
-            <button className="btn bg-black text-white mt-4 hover:bg-red-600 hover:text-black">
+            <button onClick={() => addToBag(prod)} className="btn bg-black text-white mt-4 hover:bg-red-600 hover:text-black">
               ADD TO CART
             </button>
           </div>

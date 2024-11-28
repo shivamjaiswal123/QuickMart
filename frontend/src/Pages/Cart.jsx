@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { CartState } from "../context/CartContext";
 import ContinueShopping from "../component/ContinueShopping";
 import Footer from "../component/Footer";
+import { useNavigate } from "react-router";
 
 function Cart() {
   const { setCart, cart } = CartState();
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate()
 
   const deleteProductFromCart = prod => {
     setCart(cart.filter(c => c.id !== prod.id));
@@ -102,7 +104,7 @@ function Cart() {
               PROCEED TO CHECKOUT
             </button> */}
             </div>
-            <button className="mt-6 w-full py-4 text-white bg-amber-900 hover:bg-amber-950">
+            <button onClick={() => navigate('/order')} className="mt-6 w-full py-4 text-white bg-black font-semibold">
               PROCEED TO CHECKOUT
             </button>
           </div>
